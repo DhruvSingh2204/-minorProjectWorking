@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trust-Aware Offline Sync Demo</title>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 50px auto; }
+    .user { padding: 10px; margin: 10px 0; border-radius: 5px; }
+    .doctor { background: #d4edda; }
+    .hacker { background: #f8d7da; }
+    button { padding: 10px 20px; margin: 5px; }
+    #log { background: #f8f9fa; padding: 15px; height: 300px; overflow-y: scroll; border: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>Trust-Aware Offline Synchronization Demo</h1>
+  
+  <div class="user doctor">
+    <h3>Doctor (user_doctor)</h3>
+    <input id="doctorDosage" type="number" value="100" min="1" max="500">
+    <button onclick="createOfflineEdit('doctor', 'patient1_dosage')">Create Offline Edit</button>
+  </div>
+  
+  <div class="user hacker">
+    <h3>Hacker (user_hacker)</h3>
+    <input id="hackerDosage" type="number" value="999">
+    <button onclick="createOfflineEdit('hacker', 'patient1_dosage')">Create Malicious Edit</button>
+  </div>
+  
+  <button onclick="syncAll()" style="background: #007bff; color: white; font-size: 18px;">Force Sync (WMV Resolution)</button>
+  
+  <h3>Sync Log:</h3>
+  <div id="log"></div>
+  
+  <script src="client.js"></script>
+</body>
+</html>
